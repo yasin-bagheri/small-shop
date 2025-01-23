@@ -8,6 +8,7 @@
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "antd": "^5.23.2",
+    "apexcharts": "^4.4.0",
     "axios": "^1.7.9",
     "cra-template-typescript": "1.2.0",
     "react": "^19.0.0",

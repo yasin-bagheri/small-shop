@@ -31,7 +31,7 @@ export default function CategoryListView() {
     });
   }, [setHeader]);
 
-  const [categories, setCategories] = useState<any[]>([
+  const [categories] = useState<any[]>([
     { id: 1, title: "test" },
     { id: 2, title: "test1" },
     { id: 3, title: "test2" },

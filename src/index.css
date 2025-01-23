@@ -29,6 +29,13 @@ body {
   }
 }
 
+.ant-radio-button-wrapper-checked {
+  border-color: #d9d9d9 !important;
+  background: hsl(var(--background)) !important;
+  color: black !important;
+  font-weight: 600;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

@@ -67,7 +67,7 @@ export default function DashboardLayout() {
               ),
               label: `Orders`,
               className: "px-2 !flex items-center",
-              onClick: () => navigate("/dashboard/order/list"),
+              onClick: () => navigate("/dashboard/order/chart"),
             },
             {
               key: "3",

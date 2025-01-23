@@ -10,6 +10,9 @@ import GuestGuard from "../auth/guest-guard.tsx";
 const CategoryList = lazy(
   () => import("../sections/category/view/category-list-view.tsx")
 );
+const OrderChart = lazy(
+  () => import("../sections/order/view/order-chart-view.tsx")
+);
 
 export default function Router() {
   return (
@@ -43,15 +46,15 @@ export default function Router() {
         </Route>
 
         <Route path="order">
-          <Route path="list" index element={<div>order</div>} />
+          <Route path="chart" index element={<OrderChart />} />
           <Route
             path=""
-            element={<Navigate to="/dashboard/order/list" replace />}
+            element={<Navigate to="/dashboard/order/chart" replace />}
           />
         </Route>
 
         <Route path="product">
-          <Route path="list" index element={<div>product</div>} />
+          <Route path="list" index element={<div></div>} />
           <Route
             path=""
             element={<Navigate to="/dashboard/product/list" replace />}

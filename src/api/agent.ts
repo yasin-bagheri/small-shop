@@ -1,9 +1,9 @@
-"use client";
 import { AxiosResponse } from "axios";
 
 import axios from "./axios.ts";
 import Auth from "./auth.api.ts";
 import Category from "./category.api.ts";
+import Order from "./order.api.ts";
 
 const responseBody = (response: AxiosResponse) => response?.data ?? null;
 
@@ -20,6 +20,7 @@ export const requests = {
 const agent = {
   Auth,
   Category,
+  Order,
 };
 
 export default agent;
