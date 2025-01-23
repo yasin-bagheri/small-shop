@@ -104,6 +104,10 @@ export default function DashboardLayout() {
               src="/icons/logout.svg"
               className="hover:fill-primary hover:cursor-pointer"
               alt=""
+              onClick={() => {
+                sessionStorage.removeItem("accessToken");
+                window.location.reload();
+              }}
             />
           </div>
         </div>
@@ -128,10 +132,12 @@ export default function DashboardLayout() {
         <Content>
           <div
             style={{
-              padding: 24,
+              paddingLeft: 24,
+              paddingRight: 24,
+              paddingBottom: 24,
               minHeight: 360,
             }}
-            className="bg-background w-full h-[calc(100vh-120px)]"
+            className="bg-background relative w-full h-[calc(100vh-100px)] pt-[60px]"
           >
             <Outlet />
           </div>

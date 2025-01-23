@@ -19,6 +19,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ant-pagination {
+  li {
+    border: none !important;
+  }
+
+  .ant-pagination-item-active a {
+    color: black !important;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

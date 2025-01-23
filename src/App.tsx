@@ -7,6 +7,14 @@ export default function App() {
   return (
     <ConfigProvider
       theme={{
+        components: {
+          Pagination: {
+            itemBg: "transparent",
+            itemActiveBg: "#f9fafb",
+            colorText: "#475467",
+            colorBorder: "black",
+          },
+        },
         token: {
           // Seed Token
           colorPrimary: "#004eeb",

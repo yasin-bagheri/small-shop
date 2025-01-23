@@ -8,7 +8,7 @@ import AuthGuard from "../auth/auth-guard.tsx";
 import GuestGuard from "../auth/guest-guard.tsx";
 
 const CategoryList = lazy(
-  () => import("../sections/category/category-list-view.tsx")
+  () => import("../sections/category/view/category-list-view.tsx")
 );
 
 export default function Router() {
