@@ -1,0 +1,1174 @@
+{
+  "info": {
+    "_postman_id": "b219957d-8358-4e16-bc75-a88026bb1056",
+    "name": "Example-Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32772888",
+    "_collection_link": "https://dark-desert-183163.postman.co/workspace/rahkargostaran~c981b0cb-dfa3-4779-905b-d5c3d7bb0bdc/collection/23077277-b219957d-8358-4e16-bc75-a88026bb1056?action=share&source=collection_link&creator=32772888"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"12345678\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/login",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "login"]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"12345678\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/login",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "login"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:37:54 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"token\": \"16|alimBPbqcITc5PBChyRm3l83NEVcWe4EPq6Ikv2o481ec406\",\n    \"user\": {\n        \"id\": 5,\n        \"name\": \"Admin\",\n        \"email\": \"admin@gmail.com\"\n    },\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Admin\",\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"12345678\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/register",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "register"]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Admin\",\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"12345678\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/register",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "register"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "PHP/8.2.26"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "content-length",
+                  "value": "66"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "date",
+                  "value": "Mon, 20 Jan 2025 15:17:58 GMT"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"user\": {\n        \"name\": \"Admin\",\n        \"email\": \"admin@gmail.com\",\n        \"id\": 1\n    },\n    \"success\": true\n}"
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Index",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/categories",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/categories",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:35:08 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"categories\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 3,\n                \"title\": \"Tech\"\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Economy\"\n            },\n            {\n                \"id\": 5,\n                \"title\": \"Medic\"\n            },\n            {\n                \"id\": 6,\n                \"title\": \"Adventure\"\n            }\n        ],\n        \"first_page_url\": \"http://192.168.50.53:8000/api/categories?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://192.168.50.53:8000/api/categories?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://192.168.50.53:8000/api/categories?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://192.168.50.53:8000/api/categories\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 4,\n        \"total\": 4\n    },\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Store",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Photo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/categories",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "categories"]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"title\" : \"Photo\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/categories",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "categories"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:35:56 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"category\": {\n        \"title\": \"Photo\",\n        \"id\": 7\n    },\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Economy\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/categories/:category_id",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "categories", ":category_id"],
+              "variable": [
+                {
+                  "key": "category_id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"title\" : \"Economy\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/categories/:category_id",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "categories", ":category_id"],
+                  "variable": [
+                    {
+                      "key": "category_id",
+                      "value": "4"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:36:46 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"category\": {\n        \"id\": 4,\n        \"title\": \"Economy\"\n    },\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Destroy",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/categories/:category_id",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "categories", ":category_id"],
+              "variable": [
+                {
+                  "key": "category_id",
+                  "value": "7"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/categories/:category_id",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "categories", ":category_id"],
+                  "variable": [
+                    {
+                      "key": "category_id",
+                      "value": "7"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:37:19 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Store",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "4GB Ram",
+                  "description": "required",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "150.95",
+                  "description": "required",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "description": "required",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "category_id",
+                  "value": "5",
+                  "description": "required",
+                  "type": "text"
+                },
+                {
+                  "key": "is_active",
+                  "value": "1",
+                  "description": "required - 0,1",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/products",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "products"]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "6GB Ram",
+                      "description": "required",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "900000",
+                      "description": "required",
+                      "type": "text"
+                    },
+                    {
+                      "key": "image",
+                      "description": "required",
+                      "type": "file",
+                      "src": "postman-cloud:///1ef78c19-a673-4110-8afe-b54c69d5065c"
+                    },
+                    {
+                      "key": "category_id",
+                      "value": "3",
+                      "description": "required",
+                      "type": "text"
+                    },
+                    {
+                      "key": "is_active",
+                      "value": "0",
+                      "description": "required - 0,1",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/products",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "products"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:34:47 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"product\": {\n        \"title\": \"6GB Ram\",\n        \"price\": 900000,\n        \"category_id\": 3,\n        \"is_active\": false,\n        \"image\": \"uploads/products/2025/82541737380087.png\",\n        \"id\": 5,\n        \"last_modified\": \"2025-01-20 17:04\",\n        \"category\": {\n            \"id\": 3,\n            \"title\": \"Tech\"\n        }\n    },\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "4GB Ram DDR3",
+                  "description": "required",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "200",
+                  "description": "required",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "description": "nullable",
+                  "type": "file",
+                  "src": [],
+                  "disabled": true
+                },
+                {
+                  "key": "category_id",
+                  "value": "6",
+                  "description": "required",
+                  "type": "text"
+                },
+                {
+                  "key": "is_active",
+                  "value": "1",
+                  "description": "required - 0,1",
+                  "type": "text"
+                },
+                {
+                  "key": "_method",
+                  "value": "PUT",
+                  "description": "required - This is Necessary!",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/products/:product_id",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "products", ":product_id"],
+              "variable": [
+                {
+                  "key": "product_id",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "4GB Ram DDR3",
+                      "description": "required",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "400000",
+                      "description": "required",
+                      "type": "text"
+                    },
+                    {
+                      "key": "image",
+                      "description": "nullable",
+                      "type": "file",
+                      "src": [],
+                      "disabled": true
+                    },
+                    {
+                      "key": "category_id",
+                      "value": "6",
+                      "description": "required",
+                      "type": "text"
+                    },
+                    {
+                      "key": "is_active",
+                      "value": "1",
+                      "description": "required - 0,1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "_method",
+                      "value": "PUT",
+                      "description": "required - This is Necessary!",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/products/:product_id",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "products", ":product_id"],
+                  "variable": [
+                    {
+                      "key": "product_id",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:34:00 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"product\": {\n        \"id\": 2,\n        \"title\": \"4GB Ram DDR3\",\n        \"price\": 400000,\n        \"image\": \"uploads/products/2025/524921737375063.jpg\",\n        \"category_id\": 6,\n        \"is_active\": true,\n        \"last_modified\": \"2025-01-20 17:04\",\n        \"category\": {\n            \"id\": 6,\n            \"title\": \"Adventure\"\n        }\n    },\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Index",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/products",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "products"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "DDR3",
+                  "description": "string",
+                  "disabled": true
+                },
+                {
+                  "key": "category_id",
+                  "value": "6",
+                  "description": "integer",
+                  "disabled": true
+                },
+                {
+                  "key": "is_active",
+                  "value": "0",
+                  "description": "0,1",
+                  "disabled": true
+                },
+                {
+                  "key": "price_range[0]",
+                  "value": "400",
+                  "description": "integer",
+                  "disabled": true
+                },
+                {
+                  "key": "price_range[1]",
+                  "value": "600",
+                  "description": "integer",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/products",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "products"],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "DDR3",
+                      "description": "string",
+                      "disabled": true
+                    },
+                    {
+                      "key": "category_id",
+                      "value": "6",
+                      "description": "integer",
+                      "disabled": true
+                    },
+                    {
+                      "key": "is_active",
+                      "value": "0",
+                      "description": "0,1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "price_range[0]",
+                      "value": "400000",
+                      "description": "integer",
+                      "disabled": true
+                    },
+                    {
+                      "key": "price_range[1]",
+                      "value": "600000",
+                      "description": "integer",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:33:17 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"products\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 2,\n                \"title\": \"4GB Ram DDR3\",\n                \"price\": 400000,\n                \"image\": \"uploads/products/2025/524921737375063.jpg\",\n                \"category_id\": 6,\n                \"is_active\": true,\n                \"last_modified\": \"2025-01-20 16:25\",\n                \"category\": {\n                    \"id\": 6,\n                    \"title\": \"Adventure\"\n                }\n            },\n            {\n                \"id\": 3,\n                \"title\": \"4GB Ram\",\n                \"price\": 500000,\n                \"image\": \"uploads/products/2025/956281737375249.png\",\n                \"category_id\": 3,\n                \"is_active\": true,\n                \"last_modified\": \"2025-01-20 15:44\",\n                \"category\": {\n                    \"id\": 3,\n                    \"title\": \"Tech\"\n                }\n            },\n            {\n                \"id\": 4,\n                \"title\": \"4GB Ram DDR3\",\n                \"price\": 200000,\n                \"image\": \"uploads/products/2025/640081737375277.png\",\n                \"category_id\": 6,\n                \"is_active\": false,\n                \"last_modified\": \"2025-01-20 15:46\",\n                \"category\": {\n                    \"id\": 6,\n                    \"title\": \"Adventure\"\n                }\n            }\n        ],\n        \"first_page_url\": \"http://192.168.50.53:8000/api/products?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://192.168.50.53:8000/api/products?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://192.168.50.53:8000/api/products?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://192.168.50.53:8000/api/products\",\n        \"per_page\": 5,\n        \"prev_page_url\": null,\n        \"to\": 3,\n        \"total\": 3\n    },\n    \"categories\": [\n        {\n            \"id\": 3,\n            \"title\": \"Tech\"\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Economy\"\n        },\n        {\n            \"id\": 5,\n            \"title\": \"Medic\"\n        },\n        {\n            \"id\": 6,\n            \"title\": \"Adventure\"\n        }\n    ],\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Toggle Is Active",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/products/toggle/:product_id",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "products", "toggle", ":product_id"],
+              "variable": [
+                {
+                  "key": "product_id",
+                  "value": "6"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/products/toggle/:product_id",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "products", "toggle", ":product_id"],
+                  "variable": [
+                    {
+                      "key": "product_id",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:33:40 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"product\": {\n        \"id\": 2,\n        \"title\": \"4GB Ram DDR3\",\n        \"price\": 400000,\n        \"image\": \"uploads/products/2025/524921737375063.jpg\",\n        \"category_id\": 6,\n        \"is_active\": false,\n        \"last_modified\": \"2025-01-20 17:03\"\n    },\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Destroy",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/products/:product_id",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "products", ":product_id"],
+              "variable": [
+                {
+                  "key": "product_id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/products/:product_id",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "products", ":product_id"],
+                  "variable": [
+                    {
+                      "key": "product_id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 13:42:14 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Index",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "assignment.rahkartest.ir/api/orders",
+              "host": ["assignment", "rahkartest", "ir"],
+              "path": ["api", "orders"]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "assignment.rahkartest.ir/api/orders",
+                  "host": ["assignment", "rahkartest", "ir"],
+                  "path": ["api", "orders"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "192.168.50.53:8000"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.27"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jan 2025 14:22:56 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"records\": [\n        {\n            \"id\": 64817,\n            \"products_count\": 3,\n            \"price\": 453\n        },\n        {\n            \"id\": 63976,\n            \"products_count\": 13,\n            \"price\": 1962\n        },\n        {\n            \"id\": 90353,\n            \"products_count\": 1,\n            \"price\": 151\n        },\n        {\n            \"id\": 77795,\n            \"products_count\": 14,\n            \"price\": 2113\n        },\n        {\n            \"id\": 50795,\n            \"products_count\": 14,\n            \"price\": 2113\n        },\n        {\n            \"id\": 87911,\n            \"products_count\": 7,\n            \"price\": 1057\n        },\n        {\n            \"id\": 90539,\n            \"products_count\": 5,\n            \"price\": 755\n        },\n        {\n            \"id\": 88435,\n            \"products_count\": 6,\n            \"price\": 906\n        },\n        {\n            \"id\": 47839,\n            \"products_count\": 4,\n            \"price\": 604\n        },\n        {\n            \"id\": 64948,\n            \"products_count\": 6,\n            \"price\": 906\n        },\n        {\n            \"id\": 68381,\n            \"products_count\": 13,\n            \"price\": 1962\n        },\n        {\n            \"id\": 80317,\n            \"products_count\": 13,\n            \"price\": 1962\n        },\n        {\n            \"id\": 65730,\n            \"products_count\": 6,\n            \"price\": 906\n        },\n        {\n            \"id\": 81030,\n            \"products_count\": 13,\n            \"price\": 1962\n        },\n        {\n            \"id\": 86026,\n            \"products_count\": 15,\n            \"price\": 2264\n        },\n        {\n            \"id\": 58431,\n            \"products_count\": 15,\n            \"price\": 2264\n        },\n        {\n            \"id\": 68764,\n            \"products_count\": 3,\n            \"price\": 453\n        },\n        {\n            \"id\": 47103,\n            \"products_count\": 7,\n            \"price\": 1057\n        },\n        {\n            \"id\": 94335,\n            \"products_count\": 2,\n            \"price\": 302\n        },\n        {\n            \"id\": 59955,\n            \"products_count\": 7,\n            \"price\": 1057\n        }\n    ],\n    \"count\": 20,\n    \"success\": true\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "5|A1qW0nbNuicp3jvexxCltEd34o0RAcVwLsn5Qjt5486e219c",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ]
+}
