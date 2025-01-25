@@ -3,6 +3,8 @@ import { UseHeader } from "../../../context/header-provider.tsx";
 import agent from "../../../api/agent.ts";
 import { Radio } from "antd";
 import Chart from "react-apexcharts";
+import ProductAnalytics from "../product-analytics copy.tsx";
+import OrderAnalytics from "../order-analytics.tsx";
 
 export default function OrderChartView() {
   const { setHeader } = UseHeader();
@@ -132,43 +134,11 @@ export default function OrderChartView() {
           </span>
 
           <div className="w-full">
-            <Chart
-              options={{
-                chart: {
-                  id: "chart",
-                },
-                dataLabels: {
-                  enabled: false,
-                },
-                markers: {
-                  size: 8,
-                  hover: {
-                    size: 10,
-                  },
-                },
-                fill: {
-                  type: "gradient",
-                  gradient: {
-                    shadeIntensity: 1,
-                    inverseColors: false,
-                    opacityFrom: 0.8,
-                    opacityTo: 0.7,
-                    stops: [20, 100],
-                  },
-                },
-                xaxis: {
-                  categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
-                },
-              }}
-              series={[
-                {
-                  name: "series-1",
-                  data: [30, 40, 45, 50, 49, 60, 70, 91],
-                },
-              ]}
-              type="area"
-              height={350}
-            />
+            {radio === "orders" ? (
+              <OrderAnalytics />
+            ) : (
+              <ProductAnalytics />
+            )}
           </div>
         </div>
       </div>
