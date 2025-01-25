@@ -1,17 +1,23 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router";
-import agent from "../../api/agent";
 import React from "react";
-import { Button, Form, FormProps, Input, message, Modal } from "antd";
+import { Button, Modal } from "antd";
 
 type Props = {
   title: string;
   content?: string | React.ReactNode;
   open: boolean;
   onClose: VoidFunction;
+  onSubmit: VoidFunction;
+  loading?: boolean;
 };
 
-export default function ConfirmModal({ open, title, content, onClose }: Props) {
+export default function ConfirmModal({
+  open,
+  title,
+  content,
+  onClose,
+  onSubmit,
+  loading,
+}: Props) {
   return (
     <Modal
       open={open}
@@ -42,8 +48,8 @@ export default function ConfirmModal({ open, title, content, onClose }: Props) {
         <Button
           variant="solid"
           color="red"
-          htmlType="submit"
-          // loading={loading}
+          onClick={onSubmit}
+          loading={loading}
         >
           Confirm
         </Button>

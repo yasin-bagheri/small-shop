@@ -1,121 +1,85 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router";
-import agent from "../../api/agent";
+import { useCallback, useEffect, useState } from "react";
+import agent from "../../api/agent.ts";
 import React from "react";
 import { Button, Form, FormProps, Input, message, Modal } from "antd";
 
 // ----------------------------------------------------------------------
 
 type FieldType = {
-  name?: string;
+  title?: string;
 };
 
 type Props = {
   formType: "new" | "edit";
   open: boolean;
+  id?: number;
+  title?: string;
   onClose: VoidFunction;
+  onUpdate: VoidFunction;
 };
 
-export default function CategoryNewEditForm({ open, onClose }: Props) {
+export default function CategoryNewEditForm({
+  id,
+  title,
+  open,
+  onClose,
+  onUpdate,
+  formType,
+}: Props) {
   const [form] = Form.useForm();
   const [messageApi, contextHolder] = message.useMessage();
 
-  const navigate = useNavigate();
-
   const [loading, setLoading] = useState<boolean>(false);
 
-  // const getData = useCallback(() => {
-  //   agent.Category.getAll()
-  //     .then((c) => {
-  //       // console.log(c);
-  //     })
-  //     .catch((err) => console.log(err))
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, []);
+  const post = useCallback(
+    async (values: FieldType) => {
+      setLoading(true);
+      await agent.Category.create({
+        title: values?.title || "",
+      })
+        .then(() => {
+          // console.log(response);
+          messageApi.success("category added");
+          onUpdate();
+        })
+        .catch((error) => {
+          console.error(error);
+          messageApi.error(error?.message || "something went wrong");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    },
+    [messageApi, onUpdate]
+  );
 
-  // useEffect(() => {
-  //   getData();
-  // }, [getData]);
-
-  // const post = useCallback(
-  //   async (data: IRecordItem, another?: boolean) => {
-  //     data.swimmerId = data.swimmer?.id ?? 0;
-  //     data.swimmer = null;
-  //     await agent.Record.create(data)
-  //       .then(() => {
-  //         // console.log(response);
-  //         enqueueSnackbar(t("successfully_submitted"), {
-  //           variant: "success",
-  //         });
-
-  //         if (formType === "quickCreate" && onUpdate) onUpdate();
-
-  //         if (another) reset();
-  //         else if (formType !== "quickCreate")
-  //           router.push(paths.dashboard.record.list);
-  //       })
-  //       .catch((err) => console.error(err))
-  //       .finally(() => {
-  //         setLoading(false);
-  //       });
-  //   },
-  //   [enqueueSnackbar, formType, onUpdate, reset, router, t]
-  // );
-
-  // const update = useCallback(
-  //   async (data: IRecordItem) => {
-  //     data.swimmerId = data.swimmer?.id ?? 0;
-  //     data.swimmer = null;
-  //     await agent.Record.update(data)
-  //       .then((response) => {
-  //         // console.log(response);
-  //         enqueueSnackbar(t("successfully_saved"), {
-  //           variant: "success",
-  //         });
-
-  //         if (formType === "quickEdit" && onUpdate) onUpdate();
-  //         else router.push(paths.dashboard.record.list);
-  //       })
-  //       .catch((err) => console.error(err))
-  //       .finally(() => {
-  //         setLoading(false);
-  //       });
-  //   },
-  //   [enqueueSnackbar, formType, onUpdate, router, t]
-  // );
-
-  const onSubmit = useCallback(async (data: any) => {
-    try {
-      // if (formType === "new")
-      // await post(data, false);
-      // else await update(data);
-      // console.info('DATA', data);
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
-
-  // const onDelete = () => {
-  //   setDLoading(true);
-  //   agent.Record.delete({ id: record?.id ?? 0 })
-  //     .then((response) => {
-  //       enqueueSnackbar(t("successfully_deleted"), {
-  //         variant: "success",
-  //       });
-  //       router.push(paths.dashboard.record.list);
-  //     })
-  //     .catch((err) => console.log(err))
-  //     .finally(() => {
-  //       setDLoading(false);
-  //     });
-  // };
+  const update = useCallback(
+    async (values: FieldType) => {
+      setLoading(true);
+      await agent.Category.update(id || 0, {
+        title: values?.title || "",
+      })
+        .then(() => {
+          // console.log(response);
+          messageApi.success("category updated");
+          onUpdate();
+        })
+        .catch((error) => {
+          console.error(error);
+          messageApi.error(error?.message || "something went wrong");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    },
+    [id, messageApi, onUpdate]
+  );
 
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
     // console.log("success:", values);
     try {
-      // await login(values);
+      if (formType === "new") await post(values);
+      else await update(values);
     } catch (error) {
       console.error(error);
     }
@@ -124,21 +88,22 @@ export default function CategoryNewEditForm({ open, onClose }: Props) {
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
     errorInfo
   ) => {
-    console.log("Failed:", errorInfo);
+    // console.log("Failed:", errorInfo);
   };
 
   useEffect(() => {
     if (open) {
+      if (formType === "edit") form.setFieldValue("title", title);
     } else {
       form.resetFields();
     }
-  }, [form, open]);
+  }, [form, formType, id, open, title]);
 
   return (
     <Modal
       open={open}
       onCancel={onClose}
-      title="New Category"
+      title={formType === "new" ? "New Category" : "Update Category"}
       okText="Confirm"
       footer={[]}
       className="max-w-[350px]"
@@ -147,6 +112,7 @@ export default function CategoryNewEditForm({ open, onClose }: Props) {
         header: "!px-5 !py-4",
       }}
     >
+      {contextHolder}
       <Form
         name="basic"
         form={form}
@@ -158,11 +124,9 @@ export default function CategoryNewEditForm({ open, onClose }: Props) {
       >
         <div className="flex flex-col">
           <div className="border-t px-5 pt-3">
-            {contextHolder}
-
             <Form.Item<FieldType>
               label="Category Name"
-              name="name"
+              name="title"
               required={false}
               rules={[{ required: true, message: "Please input your name!" }]}
             >

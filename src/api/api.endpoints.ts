@@ -4,6 +4,7 @@ export const API_ENDPOINTS = {
   },
   category: {
     list: "/api/categories?page=1",
+    root: "/api/categories",
   },
   order: {
     chart: "/api/orders",
