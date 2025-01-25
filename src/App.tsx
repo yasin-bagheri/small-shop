@@ -14,10 +14,17 @@ export default function App() {
             colorText: "#475467",
             colorBorder: "black",
           },
+          Modal: {
+            // borderRadiusLG: 15
+          },
+          Button: {
+            colorErrorBg: "#d92d20",
+          },
         },
         token: {
           // Seed Token
           colorPrimary: "#004eeb",
+          colorError: "#d92d20",
           borderRadius: 5,
 
           // Alias Token
