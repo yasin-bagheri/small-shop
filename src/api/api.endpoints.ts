@@ -3,7 +3,6 @@ export const API_ENDPOINTS = {
     login: "/api/login",
   },
   category: {
-    list: "/api/categories?page=1",
     root: "/api/categories",
   },
   order: {

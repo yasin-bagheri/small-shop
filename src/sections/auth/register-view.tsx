@@ -1,5 +1,6 @@
 import { Button, Form, FormProps, Input } from "antd";
 import React from "react";
+import { Link } from "react-router";
 
 type FieldType = {
   email?: string;
@@ -29,6 +30,14 @@ export default function RegisterView() {
       autoComplete="off"
     >
       <h2 className="text-2xl text-center font-bold my-4">Register</h2>
+
+      <div className="my-4">
+        have an account?{" "}
+        <Link to="/auth/login" className="text-primary">
+          login
+        </Link>
+      </div>
+
       <Form.Item<FieldType>
         label="Email Address"
         name="email"
@@ -64,6 +73,7 @@ export default function RegisterView() {
           htmlType="submit"
           size="large"
           className="w-full mt-4 bg-[#004eeb]"
+          disabled
         >
           Register
         </Button>

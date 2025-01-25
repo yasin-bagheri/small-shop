@@ -2,7 +2,8 @@ import { requests } from "./agent.ts";
 import { API_ENDPOINTS } from "./api.endpoints.ts";
 
 const Category = {
-  list: () => requests.get(API_ENDPOINTS.category.list),
+  list: (params: { per_page: number; page: number }) =>
+    requests.get(API_ENDPOINTS.category.root, { params }),
   create: (params: { title: string }) =>
     requests.post(API_ENDPOINTS.category.root, params),
   update: (id: number, params: { title: string }) =>

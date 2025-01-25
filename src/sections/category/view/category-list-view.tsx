@@ -9,6 +9,9 @@ import CategoryNewEditForm from "../category-new-edit-form.tsx";
 export default function CategoryListView() {
   const { setHeader } = UseHeader();
   const [loading, setLoading] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize] = useState<number>(5);
+  const [total, setTotal] = useState<number>(0);
 
   const [createModal, setCreateModal] = useState<boolean>(false);
 
@@ -45,11 +48,15 @@ export default function CategoryListView() {
 
   const getData = useCallback(async () => {
     setLoading(true);
-    var response = await agent.Category.list();
-    console.log(response);
+    var response = await agent.Category.list({
+      page: currentPage,
+      per_page: pageSize,
+    });
+    // console.log(response);
     setLoading(false);
     setCategories(response?.categories?.data || []);
-  }, []);
+    setTotal(response?.categories?.total || 0);
+  }, [currentPage, pageSize]);
 
   useEffect(() => {
     getData();
@@ -81,8 +88,9 @@ export default function CategoryListView() {
               <Pagination
                 align="center"
                 className="absolute bottom-0 right-0 left-0 bg-white p-5 w-full"
-                defaultCurrent={1}
-                total={50}
+                current={currentPage}
+                total={total}
+                onChange={(page: number) => setCurrentPage(page)}
                 nextIcon={
                   <Button className="absolute right-5">
                     Next

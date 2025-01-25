@@ -13,6 +13,9 @@ const CategoryList = lazy(
 const OrderChart = lazy(
   () => import("../sections/order/view/order-chart-view.tsx")
 );
+const ProductView = lazy(
+  () => import("../sections/product/view/order-chart-view.tsx")
+);
 
 export default function Router() {
   return (
@@ -27,6 +30,8 @@ export default function Router() {
       >
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+
+        <Route path="" element={<Navigate to="/auth/login" replace />} />
       </Route>
 
       <Route
@@ -54,18 +59,17 @@ export default function Router() {
         </Route>
 
         <Route path="product">
-          <Route path="list" index element={<div></div>} />
+          <Route path="list" index element={<ProductView />} />
           <Route
             path=""
             element={<Navigate to="/dashboard/product/list" replace />}
           />
         </Route>
 
-        <Route
-          path=""
-          element={<Navigate to="/dashboard/category/list" replace />}
-        />
+        <Route path="" element={<Navigate to="/dashboard/category/list" replace />} />
       </Route>
+
+      <Route path="" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   );
 }
