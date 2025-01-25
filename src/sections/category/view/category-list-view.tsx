@@ -1,18 +1,25 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { UseHeader } from "../../../context/header-provider.tsx";
-import { Button, Pagination } from "antd";
+import { Button, Modal, Pagination } from "antd";
 import agent from "../../../api/agent.ts";
 import CategoryItem from "../category-item.tsx";
+import CategoryNewEditForm from "../category-new-edit-form.tsx";
 
 export default function CategoryListView() {
   const { setHeader } = UseHeader();
+  const [createModal, setCreateModal] = useState<boolean>(false);
+
   useEffect(() => {
     setHeader({
       content: (
         <React.Fragment>
           <div className="text-2xl font-bold flex items-center justify-between w-full">
             <span>Category</span>
-            <Button variant="solid" color="primary">
+            <Button
+              variant="solid"
+              color="primary"
+              onClick={() => setCreateModal(true)}
+            >
               + Add Category
             </Button>
           </div>
@@ -95,11 +102,21 @@ export default function CategoryListView() {
         <div className="w-full h-full flex flex-col items-center justify-center text-center space-y-4">
           <img src="/icons/no-category.svg" alt="" />
           <span className="font-bold">No Category Found</span>
-          <Button variant="solid" color="primary">
+          <Button
+            variant="solid"
+            color="primary"
+            onClick={() => setCreateModal(true)}
+          >
             + Add Category
           </Button>
         </div>
       )}
+
+      <CategoryNewEditForm
+        formType="new"
+        open={createModal}
+        onClose={() => setCreateModal(false)}
+      />
     </div>
   );
 }

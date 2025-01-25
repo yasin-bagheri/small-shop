@@ -29,6 +29,10 @@ body {
   }
 }
 
+.ant-form-item-additional {
+  margin-bottom: 10px;
+}
+
 .ant-radio-button-wrapper-checked {
   border-color: #d9d9d9 !important;
   background: hsl(var(--background)) !important;

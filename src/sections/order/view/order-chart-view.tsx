@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { UseHeader } from "../../../context/header-provider.tsx";
 import agent from "../../../api/agent.ts";
 import { Radio } from "antd";
-import ApexCharts from "apexcharts";
+import Chart from "react-apexcharts";
 
 export default function OrderChartView() {
   const { setHeader } = UseHeader();
@@ -53,71 +53,52 @@ export default function OrderChartView() {
 
   // useEffect(()=>{},[])
 
-  var options = {
-    series: [
-      {
-        name: "XYZ MOTORS",
-        data: [],
-      },
-    ],
-    chart: {
-      type: "area",
-      stacked: false,
-      height: 350,
-      zoom: {
-        type: "x",
-        enabled: true,
-        autoScaleYaxis: true,
-      },
-      toolbar: {
-        autoSelected: "zoom",
-      },
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    markers: {
-      size: 0,
-    },
-    title: {
-      text: "Stock Price Movement",
-      align: "left",
-    },
-    fill: {
-      type: "gradient",
-      gradient: {
-        shadeIntensity: 1,
-        inverseColors: false,
-        opacityFrom: 0.5,
-        opacityTo: 0,
-        stops: [0, 90, 100],
-      },
-    },
-    yaxis: {
-      labels: {
-        formatter: function (val) {
-          return (val / 1000000).toFixed(0);
-        },
-      },
-      title: {
-        text: "Price",
-      },
-    },
-    xaxis: {
-      type: "datetime",
-    },
-    tooltip: {
-      shared: false,
-      y: {
-        formatter: function (val) {
-          return (val / 1000000).toFixed(0);
-        },
-      },
-    },
-  };
-
-  var chart = new ApexCharts(document?.querySelector("#chart"), options);
-  chart.render();
+  // var options = {
+  //   series: [
+  //     {
+  //       name: "XYZ MOTORS",
+  //       data: [],
+  //     },
+  //   ],
+  //   chart: {
+  //     type: "area",
+  //     stacked: false,
+  //     height: 350,
+  //     zoom: {
+  //       type: "x",
+  //       enabled: true,
+  //       autoScaleYaxis: true,
+  //     },
+  //     toolbar: {
+  //       autoSelected: "zoom",
+  //     },
+  //   },
+  //   title: {
+  //     text: "Stock Price Movement",
+  //     align: "left",
+  //   },
+  //   yaxis: {
+  //     labels: {
+  //       formatter: function (val) {
+  //         return (val / 1000000).toFixed(0);
+  //       },
+  //     },
+  //     title: {
+  //       text: "Price",
+  //     },
+  //   },
+  //   xaxis: {
+  //     type: "datetime",
+  //   },
+  //   tooltip: {
+  //     shared: false,
+  //     y: {
+  //       formatter: function (val) {
+  //         return (val / 1000000).toFixed(0);
+  //       },
+  //     },
+  //   },
+  // };
 
   return (
     <div className="flex w-full pb-10">
@@ -150,7 +131,45 @@ export default function OrderChartView() {
             {radio === "orders" ? "Price Of Orders" : "Number Of Products"}
           </span>
 
-          <div id="chart"></div>
+          <div className="w-full">
+            <Chart
+              options={{
+                chart: {
+                  id: "chart",
+                },
+                dataLabels: {
+                  enabled: false,
+                },
+                markers: {
+                  size: 8,
+                  hover: {
+                    size: 10,
+                  },
+                },
+                fill: {
+                  type: "gradient",
+                  gradient: {
+                    shadeIntensity: 1,
+                    inverseColors: false,
+                    opacityFrom: 0.8,
+                    opacityTo: 0.7,
+                    stops: [20, 100],
+                  },
+                },
+                xaxis: {
+                  categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+                },
+              }}
+              series={[
+                {
+                  name: "series-1",
+                  data: [30, 40, 45, 50, 49, 60, 70, 91],
+                },
+              ]}
+              type="area"
+              height={350}
+            />
+          </div>
         </div>
       </div>
     </div>
